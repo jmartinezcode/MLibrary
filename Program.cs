@@ -1,18 +1,15 @@
-﻿using NLog;
+﻿
+using NLog;
 
-// See https://aka.ms/new-console-template for more information
+
 string path = Directory.GetCurrentDirectory() + "\\nlog.config";
 
 // create instance of Logger
 var logger = LogManager.LoadConfiguration(path).GetCurrentClassLogger();
+string movieFilePath = Directory.GetCurrentDirectory() + "\\movies.csv"; 
+
 logger.Info("Program started");
 
-Movie movie = new Movie
-{
-    movieId = 1,
-    title = "Jeff's Killer Movie (2019)",
-    genres = new List<string> { "Action", "Romance", "Comedy" }
-};
+MovieFile movieFile = new MovieFile(movieFilePath);
 
-Console.WriteLine(movie.Display());
 logger.Info("Program ended");
