@@ -53,6 +53,8 @@ do
             if (movie.genres.Count == 0)
             {
                 movie.genres.Add("(no genres listed)");
+                // add movie
+                movieFile.AddMovie(movie);
             }
         }
     }
